@@ -12,7 +12,7 @@ engine:                      # Engine settings.
       standard:              # List of book file paths for variant standard.
        - Goi5.1.bin
        - Drawkiller_EloZoom_big.bin
-       - Cerebellum3merge.bin
+#      - Cerebellum3merge.bin
       atomic:                # List of book file paths for variant atomic.
         - atomic.bin
 #       - engines/atomicbook2.bin
