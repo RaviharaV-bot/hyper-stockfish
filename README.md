@@ -1,2 +1,2 @@
 # hyper-stockfish
-code of lichess bot hyper-stockfihs
+code of lichess bot hyper-stockfish
