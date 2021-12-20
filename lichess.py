@@ -104,7 +104,8 @@ class Lichess:
 
     def set_user_agent(self, username):
         self.header.update({"User-Agent": "lichess-bot/{} user:{}".format(self.version, username)})
-        self.session.headers.update(self.header)import requests
+        self.session.headers.update(self.header)
+import requests
 from urllib.parse import urljoin
 from requests.exceptions import ConnectionError, HTTPError, ReadTimeout
 from urllib3.exceptions import ProtocolError
