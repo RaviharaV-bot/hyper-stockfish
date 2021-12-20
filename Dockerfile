@@ -16,8 +16,8 @@ RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/r
 #&& wget --no-check-certificate -nv "https://tests.stockfishchess.org/api/nn/nn-3475407dc199.nnue" -O nn-3475407dc199.nnue \
 #&& 7z e chess-engine.zip && rm chess-engine.zip && mv stockfish* chess-engine
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern" -O stockfish_x64_modern
-RUN wget --no-check-certificate "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3Merge.bin.7z \
-&& 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
+RUN wget --no-check-certificate "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3Merge.bin.7z 
+RUN 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
 RUN wget --no-check-certificate "https://github.com/OIVAS7572/lichess-bot/raw/master/Drawkiller_EloZoom_big.bin" -O Drawkiller_EloZoom_big.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/antichess.bin" -O antichess.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/atomic.bin" -O atomic.bin
