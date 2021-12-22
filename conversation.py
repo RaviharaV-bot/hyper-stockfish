@@ -22,13 +22,13 @@ class Conversation:
         if cmd == "commands" or cmd == "help":
             self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue")
         elif cmd == "wait" and game.is_abortable():
-            game.ping(60, 120)
-            self.send_reply(line, "Waiting 60 seconds...")
+            game.ping(120, 240)
+            self.send_reply(line, "Waiting 2 minitues...")
         elif cmd == "name":
             name = game.me.name
-            self.send_reply(line, "{} running {} (lichess-bot v{})".format(name, self.engine.name(), self.version))
+            self.send_reply(line, "{} running {} (Hyper-Stockfish v{})".format(name, self.engine.name(), self.version))
         elif cmd == "id":
-            self.send_reply(line, "OIVAS7572")
+            self.send_reply(line, "RaviharaV")
         elif cmd == "howto":
             self.send_reply(line, "How to run: Check out 'Lichess Bot API'")
         elif cmd == "eval" and line.room == "spectator":
