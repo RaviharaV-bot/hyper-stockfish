@@ -26,7 +26,7 @@ RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/tcec.bin" -O tcec.bin
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3merge.bin.7z
 RUN 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
-
+RUN wget --no-check-certificate "https://f64.workupload.com/download/E5atKBeeYW8" -O m11.2.bin
 
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
