@@ -18,7 +18,6 @@ engine:                      # Engine settings.
        - komodo.bin
        - tcec.bin
        - Cerebellum3Merge.bin
-       - m11.2.bin
        - book.bin
       atomic:                # List of book file paths for variant atomic.
         - atomic.bin
