@@ -26,7 +26,7 @@ class Conversation:
             self.send_reply(line, "Waiting 2 minitues...")
         elif cmd == "name":
             name = game.me.name
-            self.send_reply(line, "{} running {} (Hyper-Stockfish v{})".format(name, self.engine.name(), self.version))
+            self.send_reply(line, "{} running {} (lichess-bot v{})".format(name, self.engine.name(), self.version))
         elif cmd == "id":
             self.send_reply(line, "RaviharaV")
         elif cmd == "howto":
