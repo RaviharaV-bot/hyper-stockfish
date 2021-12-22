@@ -31,6 +31,7 @@ engine:                      # Engine settings.
         - racingKings.bin
       3check:
         - threeCheck.bin
+        - 3check.epd
 #     etc.
 #     Use the same pattern for 'giveaway' (antichess), 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
     min_weight: 10           # Does not select moves with weight below min_weight (min 0, max: 65535).
