@@ -21,7 +21,6 @@ engine:                      # Engine settings.
        - book.bin
       atomic:                # List of book file paths for variant atomic.
         - atomic.bin
-        - superatomic.bin
       antichess:
         - antichess.bin
       horde:
@@ -57,8 +56,8 @@ engine:                      # Engine settings.
       max_pieces: 7
       source: "lichess"        # One of "lichess", "chessdb"
       move_quality: "best"     # One of "good", "best"
-  engine_options:            # Any custom command line params to pass to the engine.
-    cpuct: 3.1
+ #engine_options:            # Any custom command line params to pass to the engine.
+ #  cpuct: 3.1
   homemade_options:
 #   Hash: 256  
   uci_options:               # Arbitrary UCI options passed to the engine.
@@ -81,7 +80,7 @@ engine:                      # Engine settings.
 #   go_commands:             # Additional options to pass to the XBoard go command.
 #     depth: 5               # Search depth ply only.
 #     Do note that the go commands 'movetime' and 'nodes' are invalid and may cause bad time management for XBoard engines.
-  silence_stderr: false      # Some engines (yes you, Leela) are very noisy.
+  silence_stderr: true      # Some engines (yes you, Leela) are very noisy.
 
 abort_time: 30               # Time to abort a game in seconds when there is no activity.
 fake_think_time: false       # Artificially slow down the bot to pretend like it's thinking.
