@@ -29,5 +29,4 @@ RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3mer
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
-CMD neofetch
 CMD python3 lichess-bot.py -u
