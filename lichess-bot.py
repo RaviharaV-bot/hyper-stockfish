@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 from http.client import RemoteDisconnected
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 terminated = False
 
@@ -135,7 +135,7 @@ def start(li, user_profile, engine_factory, config, logging_level, log_filename)
                 logger.warning("Unable to handle response from lichess.org:")
                 logger.warning(event)
                 if event.get("error") == "Missing scope":
-                    logger.warning('Please check that the API access token for your bot has the scope "Play games with the bot API".')
+                    logger.warning('Please check that the API access token for your bot has allowed "Play games with the bot API"(bot:play).')
                 continue
             
             if event["type"] == "terminated":
