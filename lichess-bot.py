@@ -353,7 +353,7 @@ def choose_move_time(engine, board, search_time, ponder, draw_offered):
 
 def choose_first_move(engine, board, draw_offered):
     # need to hardcode first movetime (10000 ms) since Lichess has 30 sec limit.
-    search_time = 5000
+    search_time = 7500
     logger.info("Searching for time {}".format(search_time))
     return engine.first_search(board, search_time, draw_offered)
 
