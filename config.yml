@@ -52,10 +52,10 @@ engine:                      # Engine settings.
       min_depth: 30
       min_knodes: 0
     online_egtb:
-      enabled: false
+      enabled: true
       min_time: 20
       max_pieces: 7
-      source: "chessdb"        # One of "lichess", "chessdb"
+      source: "lichess"        # One of "lichess", "chessdb"
       move_quality: "best"     # One of "good", "best"
 # engine_options:            # Any custom command line params to pass to the engine.
 #   cpuct: 3.1
