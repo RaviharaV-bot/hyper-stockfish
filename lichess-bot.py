@@ -102,7 +102,7 @@ def game_logging_configurer(queue, level):
 def start(li, user_profile, engine_factory, config, logging_level, log_filename):
     challenge_config = config["challenge"]
     max_games = challenge_config.get("concurrency", 1)
-    logger.info("You're now connected to {} and awaiting challenges.".format(config["url"]))
+    logger.info("You're now finished setting up hyper-stockfish and connected to {} and awaiting challenges.".format(config["url"]))
     manager = multiprocessing.Manager()
     challenge_queue = manager.list()
     control_queue = manager.Queue()
@@ -162,9 +162,9 @@ def start(li, user_profile, engine_factory, config, logging_level, log_filename)
                         if not chlng.is_supported_mode(challenge["modes"]):
                             reason = "casual not supported" if chlng.rated else "rated not supported"
                         if not challenge.get("accept_bot", False) and chlng.challenger_is_bot:
-                            reason = "noBot"
+                            reason = "bots are not supported"
                         if challenge.get("only_bot", False) and not chlng.challenger_is_bot:
-                            reason = "onlyBot"
+                            reason = "only Bots are supported"
                         li.decline_challenge(chlng.id, reason=reason)
                         logger.info("Decline {} for reason '{}'".format(chlng, reason))
                     except Exception:
@@ -206,7 +206,7 @@ def start(li, user_profile, engine_factory, config, logging_level, log_filename)
             while ((queued_processes + busy_processes) < max_games and challenge_queue):  # keep processing the queue until empty or max_games is reached
                 chlng = challenge_queue.pop(0)
                 try:
-                    logger.info("Accept {}".format(chlng))
+                    logger.info("Accepted {}".format(chlng))
                     queued_processes += 1
                     li.accept_challenge(chlng.id)
                     logger.info("--- Process Queue. Total Queued: {}. Total Used: {}".format(queued_processes, busy_processes))
@@ -353,7 +353,7 @@ def choose_move_time(engine, board, search_time, ponder, draw_offered):
 
 def choose_first_move(engine, board, draw_offered):
     # need to hardcode first movetime (10000 ms) since Lichess has 30 sec limit.
-    search_time = 7500
+    search_time = 5000
     logger.info("Searching for time {}".format(search_time))
     return engine.first_search(board, search_time, draw_offered)
 
@@ -391,7 +391,7 @@ def get_book_move(board, polyglot_cfg):
                 move = None
 
         if move is not None:
-            logger.info("Got move {} from book {}".format(move, book))
+            logger.info("will play move {} got from book {}".format(move, book))
             return chess.engine.PlayResult(move, None)
 
     return no_book_move
@@ -514,7 +514,7 @@ def get_online_egtb_move(li, board, game, online_egtb_cfg):
                     if dtm:
                         dtm *= -1
                 if wdl is not None:
-                    logger.info("Got move {} from tablebase.lichess.ovh (wdl: {}, dtz: {}, dtm: {})".format(move, wdl, dtz, dtm))
+                    logger.info("will play move {} got from lichess endgame tablebase (wdl: {}, dtz: {}, dtm: {})".format(move, wdl, dtz, dtm))
                     return move
         elif online_egtb_cfg.get("source", "lichess") == "chessdb":
 
@@ -535,7 +535,7 @@ def get_online_egtb_move(li, board, game, online_egtb_cfg):
                 if data["status"] == "ok":
                     score = data["score"]
                     move = data["pv"][0]
-                    logger.info("Got move {} from chessdb.cn (wdl: {})".format(move, score_to_wdl(score)))
+                    logger.info("will play move {} got from chessdb (wdl: {})".format(move, score_to_wdl(score)))
                     return move
             else:
                 data = li.api_get(f"https://www.chessdb.cn/cdb.php?action=queryall&board={board.fen()}&json=1")
@@ -545,7 +545,7 @@ def get_online_egtb_move(li, board, game, online_egtb_cfg):
                     random_move = random.choice(possible_moves)
                     score = random_move["score"]
                     move = random_move["uci"]
-                    logger.info("Got move {} from chessdb.cn (wdl: {})".format(move, score_to_wdl(score)))
+                    logger.info("will play move {} got from chessdb (wdl: {})".format(move, score_to_wdl(score)))
                     return move
     except Exception:
         pass
