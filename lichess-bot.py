@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 from http.client import RemoteDisconnected
 
-__version__ = "1.2.0"
+__version__ = "1.0.0"
 
 terminated = False
 
@@ -142,7 +142,7 @@ def start(li, user_profile, engine_factory, config, logging_level, log_filename)
                 break
             elif event["type"] == "local_game_done":
                 busy_processes -= 1
-                logger.info("+++ Process Free. Total Queued: {}. Total Used: {}".format(queued_processes, busy_processes))
+                logger.info("+++ Game Over. Process Free. Total Queued: {}. Total Used: {}".format(queued_processes, busy_processes))
             elif event["type"] == "challenge":
                 chlng = model.Challenge(event["challenge"])
                 if chlng.is_supported(challenge_config):
@@ -156,11 +156,11 @@ def start(li, user_profile, engine_factory, config, logging_level, log_filename)
                         reason = "generic"
                         challenge = config["challenge"]
                         if not chlng.is_supported_variant(challenge["variants"]):
-                            reason = "variant"
+                            reason = "variant not supported"
                         if not chlng.is_supported_time_control(challenge["time_controls"], challenge.get("max_increment", 180), challenge.get("min_increment", 0), challenge.get("max_base", 315360000), challenge.get("min_base", 0)):
-                            reason = "timeControl"
+                            reason = "timeControl not supported"
                         if not chlng.is_supported_mode(challenge["modes"]):
-                            reason = "casual" if chlng.rated else "rated"
+                            reason = "casual not supported" if chlng.rated else "rated not supported"
                         if not challenge.get("accept_bot", False) and chlng.challenger_is_bot:
                             reason = "noBot"
                         if challenge.get("only_bot", False) and not chlng.challenger_is_bot:
@@ -212,7 +212,7 @@ def start(li, user_profile, engine_factory, config, logging_level, log_filename)
                     logger.info("--- Process Queue. Total Queued: {}. Total Used: {}".format(queued_processes, busy_processes))
                 except (HTTPError, ReadTimeout) as exception:
                     if isinstance(exception, HTTPError) and exception.response.status_code == 404:  # ignore missing challenge
-                        logger.info("Skip missing {}".format(chlng))
+                        logger.info("Skip  {}".format(chlng))
                     queued_processes -= 1
 
             control_queue.task_done()
@@ -320,11 +320,11 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
                 if is_correspondence and not is_engine_move(game, board) and game.should_disconnect_now():
                     break
                 elif game.should_abort_now():
-                    logger.info("Aborting {} by lack of activity".format(game.url()))
+                    logger.info("Aborting {} cuz of lack of activity".format(game.url()))
                     li.abort(game.id)
                     break
                 elif game.should_terminate_now():
-                    logger.info("Terminating {} by lack of activity".format(game.url()))
+                    logger.info("Terminating {} cuz lack of activity".format(game.url()))
                     if game.is_abortable():
                         li.abort(game.id)
                     break
@@ -338,7 +338,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     engine.quit()
 
     if is_correspondence and not is_game_over(game):
-        logger.info("--- Disconnecting from {}".format(game.url()))
+        logger.info("--- Disconnecting from correspondence game {}".format(game.url()))
         correspondence_queue.put(game_id)
     else:
         logger.info("--- {} Game over".format(game.url()))
@@ -353,7 +353,7 @@ def choose_move_time(engine, board, search_time, ponder, draw_offered):
 
 def choose_first_move(engine, board, draw_offered):
     # need to hardcode first movetime (10000 ms) since Lichess has 30 sec limit.
-    search_time = 10000
+    search_time = 7500
     logger.info("Searching for time {}".format(search_time))
     return engine.first_search(board, search_time, draw_offered)
 
@@ -459,7 +459,7 @@ def get_lichess_cloud_move(li, board, game, lichess_cloud_cfg):
                     pv = data["pvs"][0]
                     move = pv["moves"].split()[0]
                     score = pv["cp"]
-                    logger.info("Got move {} from lichess cloud analysis (depth: {}, score: {}, knodes: {})".format(move, depth, score, knodes))
+                    logger.info("will play the move {} got from lichess cloud analysis (depth: {}, score: {}, knodes: {})".format(move, depth, score, knodes))
             else:
                 depth = data["depth"]
                 knodes = data["knodes"]
@@ -474,7 +474,7 @@ def get_lichess_cloud_move(li, board, game, lichess_cloud_cfg):
                     pv = random.choice(pvs)
                     move = pv["moves"].split()[0]
                     score = pv["cp"]
-                    logger.info("Got move {} from lichess cloud analysis (depth: {}, score: {}, knodes: {})".format(move, depth, score, knodes))
+                    logger.info("will play the move {} got from lichess cloud analysis (depth: {}, score: {}, knodes: {})".format(move, depth, score, knodes))
     except Exception:
         pass
 
@@ -626,7 +626,7 @@ def is_game_over(game):
 def intro():
     return r"""
    .  _   _                           ____  _             _     __ _     _     
-   . | | | |_   _ _ __   ___ _ __    / ___|| |_ ___   ___| | __/ _(_)___| |__   lichess-bot %s
+   . | | | |_   _ _ __   ___ _ __    / ___|| |_ ___   ___| | __/ _(_)___| |__   hyper-stockfish %s
    . | |_| | | | | '_ \ / _ \ '__|___\___ \| __/ _ \ / __| |/ / |_| / __| '_ \   
    . |  _  | |_| | |_) |  __/ | |_____|__) | || (_) | (__|   <|  _| \__ \ | | | play on lichess with a bot
    . |_| |_|\__, | .__/ \___|_|      |____/ \__\___/ \___|_|\_\_| |_|___/_| |_| 
