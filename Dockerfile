@@ -6,12 +6,12 @@ COPY requirements.txt .
 
 # If you want to run any other commands use "RUN" before.
 
-RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full > apti.log
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full neofetch > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
 && 7z e Goi5.1.bin.7z && rm Goi5.1.bin.7z
-#RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern" -O stockfish_x64_modern
+RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern" -O stockfish_x64_modern
 RUN wget --no-check-certificate "https://github.com/OIVAS7572/lichess-bot/raw/master/Drawkiller_EloZoom_big.bin" -O Drawkiller_EloZoom_big.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/antichess.bin" -O antichess.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/atomic.bin" -O atomic.bin
@@ -26,9 +26,8 @@ RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/tcec.bin" -O tcec.bin
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3merge.bin.7z \
 && 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
-RUN bash makefile.sh
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
-
+CMD neofetch
 CMD python3 lichess-bot.py -u
