@@ -1,3 +1,4 @@
+username: "hyper-stockfish"
 token: "lip_zGhm9cSWskkX6QAVgBZB"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
