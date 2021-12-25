@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 # If you want to run any other commands use "RUN" before.
 
-RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full git > apti.log
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full polyglot > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
@@ -27,8 +27,8 @@ RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3merge.bin.7z \
 && 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
-RUN python3 bookbuild.py -d all
-RUN python3 bookbuild.py -b
+RUN wget --no-check-certificate "https://lichess.org/api/games/user/Hyper-Stockfish?tags=true&clocks=false&evals=false&opening=false&perfType=bullet%2Cblitz%2Crapid%2Cclassical%2Ccorrespondence" -O hyper-standard.pgn
+RUN pgn_to_bin "hyper-standard.pgn" > "hyper-standard.bin"
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
 CMD python3 lichess-bot.py -u
