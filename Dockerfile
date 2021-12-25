@@ -27,9 +27,6 @@ RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3merge.bin.7z \
 && 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
-RUN wget --no-check-certificate "https://liguibot.herokuapp.com/file/book/antichess/merged.bin" -O liatomic.bin
-RUN wget --no-check-certificate "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" -O miniconda.sh
-RUN bash miniconda.sh
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
 CMD python3 lichess-bot.py -u
