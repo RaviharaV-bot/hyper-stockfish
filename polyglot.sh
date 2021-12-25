@@ -1,5 +1,3 @@
-for f in *.pgn
-    do
-    f1="${f%.pgn}"
-    polyglot make-book -pgn "$f" -bin "$f1".bin -min-game 1
-    done
+for file in *.pgn; do
+    pgn_to_bin "${file}" > "${file%.pgn}.bin"
+done
