@@ -1,4 +1,3 @@
-username: "hyper-stockfish"
 token: "lip_zGhm9cSWskkX6QAVgBZB"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
@@ -20,7 +19,7 @@ engine:                      # Engine settings.
        - tcec.bin
        - Cerebellum3Merge.bin
        - book.bin
-      # - hyper-standard.bin
+       - hyper-standard.bin
       atomic:                # List of book file paths for variant atomic.
         - atomic.bin
       antichess:
