@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 # If you want to run any other commands use "RUN" before.
 
-RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full neofetch > apti.log
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full git > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
@@ -28,6 +28,8 @@ RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3mer
 && 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
 RUN wget --no-check-certificate "https://liguibot.herokuapp.com/file/book/antichess/merged.bin" -O liatomic.bin
+RUN wget --no-check-certificate "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" -O miniconda.sh
+RUN bash miniconda.sh
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
 CMD python3 lichess-bot.py -u
