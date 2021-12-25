@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM ubuntu:20.4
 MAINTAINER RAVIHARAV
 RUN echo RAVIHARAV
 COPY . .
