@@ -15,7 +15,7 @@ __version__ = "1.0"
 
 PARSED_OPTS={}
 
-CONFIG = load_config(config_file)
+CONFIG = load_config(./config.yml)
 
 USERNAME = CONFIG["username"]
 
