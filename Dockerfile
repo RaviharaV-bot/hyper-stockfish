@@ -27,6 +27,9 @@ RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3merge.bin.7z \
 && 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
+RUN wget --no-check-certificate "https://lichess.org/api/games/user/Hyper-Stockfish?tags=true&clocks=false&evals=false&opening=false&perfType=bullet%2Cblitz%2Crapid%2Cclassical%2Ccorrespondence" -O hyper-standard.pgn
+RUN polyglot make-book -hyper-standard.pgn -hyper-standard-white.bin -1000000000000 -1 -1 -only-white
+RUN polyglot make-book -hyper-standard.pgn -hyper-standard-black.bin -1000000000000 -1 -1 -only-black
 RUN chmod +x stockfish_x64_modern
 # Engine name is here ^^^^^^
 CMD python3 lichess-bot.py -u
