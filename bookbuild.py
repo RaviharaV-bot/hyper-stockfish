@@ -38,7 +38,7 @@ __version__ = "1.0"
 
 PARSED_OPTS={}
 
-def start(config, log_filename):
+start(config, log_filename):
     username = config["username"]
 
 MAX_BOOK_PLIES  = 60
@@ -76,7 +76,6 @@ def dump_json_obj(path,json_obj,indent=None):
 		json.dump(json_obj, outfile, indent=indent)
 
 class LichessGame():
-	username = config["username"]
 	def __init__(self,game,me=username):
 		self.game=game
 		self.me=me
