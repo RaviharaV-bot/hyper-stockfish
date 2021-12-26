@@ -24,6 +24,7 @@ engine:                      # Engine settings.
         - atomic.bin
       antichess:
         - antichess.bin
+        - /envs/antichess/merged.bin
       horde:
         - horde.bin
       kingofthehill:
