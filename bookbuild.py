@@ -76,6 +76,7 @@ def dump_json_obj(path,json_obj,indent=None):
 		json.dump(json_obj, outfile, indent=indent)
 
 class LichessGame():
+	username = config["username"]
 	def __init__(self,game,me=username):
 		self.game=game
 		self.me=me
