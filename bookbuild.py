@@ -38,7 +38,8 @@ __version__ = "1.0"
 
 PARSED_OPTS={}
 
-USERNAME = CONFIG["username"]
+def start(config, log_filename):
+USERNAME = config["username"]
 
 MAX_BOOK_PLIES  = 60
 MAX_VISIT_GAMES = 100000
