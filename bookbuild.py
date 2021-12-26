@@ -76,7 +76,7 @@ def dump_json_obj(path,json_obj,indent=None):
 		json.dump(json_obj, outfile, indent=indent)
 
 class LichessGame():
-	def __init__(self,game,me=USERNAME):
+	def __init__(self,game,me=username):
 		self.game=game
 		self.me=me
 	def get_id(self):
@@ -159,7 +159,7 @@ def get_games(li,username,queryparams={},path=None):
 			pgnfile.write(text)
 	return text
 
-PGN_DIR = USERNAME+"_pgn"
+PGN_DIR = username+"_pgn"
 
 create_dir(PGN_DIR)
 
@@ -213,7 +213,7 @@ class BookPosition():
 		self.moves={}
 
 class BuildInfo():
-	def __init__(self,name=USERNAME,pgn_dir=PGN_DIR):
+	def __init__(self,name=username,pgn_dir=PGN_DIR):
 		self.name=name
 		self.pgn_dir=pgn_dir
 		self.game_ids=[]		
@@ -402,7 +402,7 @@ class BuildInfo():
 def get_some_games(since,until,name):
 	query={"since":int(server_time(since))*1000,"until":int(server_time(until))*1000}
 
-	games=get_games(li,USERNAME,query,pgn_path(name))
+	games=get_games(li,username,query,pgn_path(name))
 
 def build():
 	bi=BuildInfo()
