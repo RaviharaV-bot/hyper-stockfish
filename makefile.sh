@@ -2,12 +2,12 @@
 # makefish.sh
 
 # install packages if not already installed
-unzip -v &> /dev/null || sudo apt install -y unzip
-make -v &> /dev/null || sudo apt install -y make
-g++ -v &> /dev/null || sudo apt install -y build-essential
+unzip -v &> /dev/null ||  apt install -y unzip
+make -v &> /dev/null ||  apt install -y make
+g++ -v &> /dev/null ||  apt install -y build-essential
 
 # download the Stockfish source code
-wget https://github.com/ddugovic/Stockfish/archive/master.zip
+wget --no-check-certificate https://github.com/ddugovic/Stockfish/archive/master.zip
 unzip master.zip
 cd Stockfish-master/src
 
