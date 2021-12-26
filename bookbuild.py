@@ -11,11 +11,11 @@ import json
 import chess
 import chess.polyglot
 
+logger = logging.getLogger(__name__)
+
 __version__ = "1.0"
 
 PARSED_OPTS={}
-
-CONFIG = load_config(config.yml)
 
 USERNAME = CONFIG["username"]
 
