@@ -38,7 +38,7 @@ __version__ = "1.0"
 
 PARSED_OPTS={}
 
-start(config, log_filename):
+def start(config, log_filename):
     username = config["username"]
 
 MAX_BOOK_PLIES  = 60
@@ -76,6 +76,8 @@ def dump_json_obj(path,json_obj,indent=None):
 		json.dump(json_obj, outfile, indent=indent)
 
 class LichessGame():
+	def start(config, log_filename):
+                username = config["username"] 
 	def __init__(self,game,me=username):
 		self.game=game
 		self.me=me
@@ -140,7 +142,8 @@ def create_dir(path):
 
 def pgn_path(name):
 	return os.path.join(PGN_DIR,name)+".pgn"
-
+def start(config, log_filename):
+    username = config["username"]
 def get_games(li,username,queryparams={},path=None):	
 	querylist=[]
 	for paramkey in queryparams:
@@ -158,7 +161,8 @@ def get_games(li,username,queryparams={},path=None):
 		with open(path,"w") as pgnfile:
 			pgnfile.write(text)
 	return text
-
+def start(config, log_filename):
+    username = config["username"]
 PGN_DIR = username+"_pgn"
 
 create_dir(PGN_DIR)
