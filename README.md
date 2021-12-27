@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/docker-image.yml/badge.svg)](https://github.com/RaviharaV-bot/hyper-stockfish/actions) [![Python Build](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/python.yml/badge.svg)](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/python.yml)[![hyper-stockfish release][releaselogo]][releaselink]
+[![Build Status](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/docker-image.yml/badge.svg)](https://github.com/RaviharaV-bot/hyper-stockfish/actions) [![Python Build](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/python.yml/badge.svg)](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/python.yml)[![Release](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/release.yml/badge.svg)](https://github.com/RaviharaV-bot/hyper-stockfish/actions/workflows/release.yml)
 
 # hyper-stockfish
 
