@@ -9,7 +9,7 @@ Engine communication code taken from https://github.com/ShailChoksi/lichess-bot 
 
 ### Chess Engine
 
-- [Stockfish Dev (Modern CPU)](https://stockfishchess.org)
+- [Multi Variant Stockfish (Modern CPU)](https://github.com/ddugovic/Stockfish)
 
 ### Heroku Buildpack
 
