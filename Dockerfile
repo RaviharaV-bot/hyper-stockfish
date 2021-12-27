@@ -1,4 +1,4 @@
-FROM debain:stable-slim
+FROM debian:stable-slim
 MAINTAINER RAVIHARAV
 RUN echo RAVIHARAV
 COPY . .
