@@ -15,10 +15,10 @@ __version__ = "1.0"
 
 PARSED_OPTS={}
 
-Config.load_config()
+CONFIG = Config.load_config()
 
 
-USERNAME = Config["username"]
+USERNAME = CONFIG["username"]
 
 MAX_BOOK_PLIES  = 60
 MAX_VISIT_GAMES = 100000
