@@ -55,15 +55,19 @@ engine:                      # Engine settings.
   homemade_options:
 #   Hash: 256  
   uci_options:               # Arbitrary UCI options passed to the engine.
-    Move Overhead: 500       # Increase if your bot flags games too often.
+    Move Overhead: 2000        # Increase if your bot flags games too often.
     Threads: 2               # Max CPU threads the engine can use.
     Hash: 256                # Max memory (in megabytes) the engine can allocate.
-#   Clear Hash: true         # Clear the hash table
-#   go_commands:             # Additional options to pass to the UCI go command.
-#     nodes: 1               # Search so many nodes only.
-#     depth: 5               # Search depth ply only.
-#     movetime: 1000         # Integer. Search exactly movetime milliseconds.
-# xboard_options:            # Arbitrary XBoard options passed to the engine.
+    Use NNUE: true           # allow bot to use neural networks
+    SyzygyPath: ./Syzygy_tablebase
+    SyzygyProbeDepth: 50
+    Syzygy50MoveRule: true
+    SyzygyProbeLimit: 7
+    Skill Level: 20
+    UCI_ShowWDL: false
+    UCI_Elo  : 2850
+    TsumeMode: true
+    # xboard_options:            # Arbitrary XBoard options passed to the engine.
 #   cores: "4"
 #   memory: "4096"
 #   egtpath:                 # Directory containing egtb (endgame tablabases), relative to this project. For 'xboard' engines.
