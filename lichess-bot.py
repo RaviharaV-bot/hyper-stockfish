@@ -248,6 +248,11 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
         engine_path = os.path.join(cfg["dir"], cfg["sfname"])
         engineeng = engine.SimpleEngine.popen_uci(engine_path) 
      
+    
+    if variant=="antichess":
+        engine_path = os.path.join(cfg["dir"], cfg["antiname"])
+        engineeng = engine.SimpleEngine.popen_uci(engine_path)
+        
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"
