@@ -3,8 +3,8 @@ url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
-  name: "multivariant_stockfish"  # name of the engine for variants.
-  sfname: "stockfish_dev" # name of the engine for standard
+  name: "sf"        # binary name of the engine to use
+  variantname: "msf"
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -36,7 +36,7 @@ engine:                      # Engine settings.
       min_time: 20
       move_quality: "best"     # One of "all", "good", "best"
       min_depth: 30            # Only for move_quality: "best"
-      contribute: true
+      contribute: false
     lichess_cloud_analysis:
       enabled: false
       min_time: 20
@@ -45,7 +45,7 @@ engine:                      # Engine settings.
       min_depth: 30
       min_knodes: 0
     online_egtb:
-      enabled: true
+      enabled: false
       min_time: 20
       max_pieces: 7
       source: "lichess"        # One of "lichess", "chessdb"
@@ -54,19 +54,6 @@ engine:                      # Engine settings.
  #  cpuct: 3.1
   homemade_options:
 #   Hash: 256  
-  uci_options:               # Arbitrary UCI options passed to the engine.
-    Move Overhead: 2000        # Increase if your bot flags games too often.
-    Threads: 2               # Max CPU threads the engine can use.
-    Hash: 256                # Max memory (in megabytes) the engine can allocate.
-    Use NNUE: true           # allow bot to use neural networks
-    SyzygyPath: ./3-4-5
-    SyzygyProbeDepth: 50
-    Syzygy50MoveRule: true
-    SyzygyProbeLimit: 7
-    Skill Level: 20
-    UCI_ShowWDL: false
-    UCI_Elo  : 2850
-    TsumeMode: true
     # xboard_options:            # Arbitrary XBoard options passed to the engine.
 #   cores: "4"
 #   memory: "4096"
