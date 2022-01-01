@@ -10,7 +10,7 @@ RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
 #syzygy tablebase 5 pices
-RUN wget --no-check-certificate "https://drive.google.com/u/0/uc?export=download&confirm=fqxB&id=1HJTooTmu5FNFYKfngNomBhuMp1FRpzes" -O syzygy.zip
+RUN wget --no-check-certificate "https://doc-0c-4k-docs.googleusercontent.com/docs/securesc/6u8jf8lp1a9uf1g9bt2vflfpf22imeij/4m86u8uddaco8pmc3l5svpskph9jk2qa/1641044925000/11706750457809039325/11706750457809039325/1HJTooTmu5FNFYKfngNomBhuMp1FRpzes?e=download&authuser=0&nonce=knnvitumu07mm&user=11706750457809039325&hash=qimkif537cbli9h6tbmo6qv92mm02snf" -O syzygy.zip
 RUN unzip syzygy.zip
 
 #add books in .7z format
