@@ -257,8 +257,6 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
         engine_path = os.path.join(cfg["dir"], cfg["name"])
     else:
         engine_path = os.path.join(cfg["dir"], cfg["variantname"])
-    engineeng = engine.SimpleEngine.popen_uci(engine_path)
-    engineeng.configure({'Threads':2})
     
     logger.info("+++ {}".format(game))
 

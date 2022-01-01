@@ -52,7 +52,7 @@ engine:                      # Engine settings.
       move_quality: "best"     # One of "good", "best"
  #engine_options:            # Any custom command line params to pass to the engine.
  #  cpuct: 3.1
-  homemade_options:
+# homemade_options:
 #   Hash: 256  
     # xboard_options:            # Arbitrary XBoard options passed to the engine.
 #   cores: "4"
