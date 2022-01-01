@@ -31,7 +31,9 @@ RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-
 RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
 
 #engine section
-
+RUN chmod +x stockfish
+RUN chmod +x multisf
+# Engine name is here ^^^^^^
 
 #start bot
 CMD python3 lichess-bot.py -u
