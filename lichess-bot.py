@@ -248,13 +248,17 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
     conversation.send_reply(SendLine('player'), f'All the best {opponent} !')
     conversation.send_reply(SendLine('spectator'), f'Welcome to my game spectators!')
-            
-    variant=game.perf_name
- 
-    if variant=="standard":
-        engine_path = os.path.join(cfg["dir"], cfg["sfname"])
-        engineeng = engine.SimpleEngine.popen_uci(engine_path) 
-        
+
+    board = setup_board(game)
+    cfg = config["engine"]
+
+    if type(board).uci_variant=="chess":
+        engine_path = os.path.join(cfg["dir"], cfg["name"])
+    else:
+        engine_path = os.path.join(cfg["dir"], cfg["variantname"])
+    engineeng = engine.SimpleEngine.popen_uci(engine_path)
+    engineeng.configure({'Threads':2})
+    
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"
