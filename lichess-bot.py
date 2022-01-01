@@ -253,10 +253,12 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     board = setup_board(game)
     cfg = config["engine"]
 
+
 #    if type(board).uci_variant=="chess":
 #        engine_path = os.path.join(cfg["dir"], cfg["name"])
 #    else:
 #        engine_path = os.path.join(cfg["dir"], cfg["variantname"])
+
     
     logger.info("+++ {}".format(game))
 
