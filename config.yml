@@ -5,7 +5,6 @@ engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
   name: "multivariant_stockfish"  # name of the engine for variants.
   sfname: "stockfish_dev" # name of the engine for standard
-  antiname: "fsf" # name of the engine for antichess
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
