@@ -9,6 +9,10 @@ COPY requirements.txt .
 RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full unzip > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
+#syzygy tablebase 5 pices
+RUN wget --no-check-certificate "https://drive.google.com/u/0/uc?export=download&confirm=fqxB&id=1HJTooTmu5FNFYKfngNomBhuMp1FRpzes" -O syzygy.zip
+RUN unzip syzygy.zip
+
 #add books in .7z format
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
 && 7z e Goi5.1.bin.7z && rm Goi5.1.bin.7z
@@ -22,10 +26,6 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/horde.b
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/racingKings.bin" -O racingKings.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/threeCheck.bin" -O threeCheck.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfTheHill.bin" -O kingofthehill.bin
-
-#syzygy tablebase 5 pices
-RUN wget --no-check-certificate "https://doc-0c-4k-docs.googleusercontent.com/docs/securesc/6u8jf8lp1a9uf1g9bt2vflfpf22imeij/loqhlgoa7ubh9fbn9h7o4gvkfnkpfrub/1641044400000/11706750457809039325/11706750457809039325/1HJTooTmu5FNFYKfngNomBhuMp1FRpzes?e=download&authuser=0&nonce=m4vo9h5rvgdom&user=11706750457809039325&hash=lg085lr2mmgs28po5753u1di8qm29rsh" -O syzygy.zip
-RUN unzip syzygy.zip
 
 #engine section
 RUN chmod +x sf
