@@ -242,6 +242,12 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     engine.get_opponent_info(game)
     conversation = Conversation(game, engine, li, __version__, challenge_queue)
 
+    variant=game.perf_name
+
+    if variant=="standard":
+        engine_path = os.path.join(cfg["dir"],cfg["vairantname"]
+        engineeng = engine.SimpleEngine.popen_uci(enginepath)        
+
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"

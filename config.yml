@@ -3,7 +3,8 @@ url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
-  name: "stockfish_x64_modern"       # Binary name of the engine to use.
+  name: "stockfish"       # Binary name of the engine to use.
+  variantname: "multisf"  
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -61,12 +62,6 @@ engine:                      # Engine settings.
  #  cpuct: 3.1
   homemade_options:
 #   Hash: 256  
-  uci_options:               # Arbitrary UCI options passed to the engine.
-    Move Overhead: 500       # Increase if your bot flags games too often.
-    Threads: 2               # Max CPU threads the engine can use.
-    Hash: 256                # Max memory (in megabytes) the engine can allocate.
-#   Clear Hash: true         # Clear the hash table
-#   go_commands:             # Additional options to pass to the UCI go command.
 #     nodes: 1               # Search so many nodes only.
 #     depth: 5               # Search depth ply only.
 #     movetime: 1000         # Integer. Search exactly movetime milliseconds.
