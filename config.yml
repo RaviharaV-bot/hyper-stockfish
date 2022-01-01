@@ -44,11 +44,22 @@ engine:                      # Engine settings.
       min_depth: 30
       min_knodes: 0
     online_egtb:
-      enabled: false
+      enabled: true
       min_time: 20
       max_pieces: 7
       source: "lichess"        # One of "lichess", "chessdb"
       move_quality: "best"     # One of "good", "best"
+      
+ uci_options:               # Arbitrary UCI options passed to the engine.
+    Move Overhead: 50        # Increase if your bot flags games too often.
+    Threads: 2               # Max CPU threads the engine can use.
+    Hash: 256                # Max memory (in megabytes) the engine can allocate.
+    Use NNUE: true           # allow bot to use neural networks
+    SyzygyPath: ./3-4-5
+    SyzygyProbeDepth: 50
+    Syzygy50MoveRule: true
+    SyzygyProbeLimit: 5
+    Skill Level: 20     
  #engine_options:            # Any custom command line params to pass to the engine.
  #  cpuct: 3.1
 # homemade_options:
