@@ -27,7 +27,6 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfT
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -O multivariant_stockfish
 RUN wget --no-check-certificate -nv "http://abrok.eu/stockfish/latest/linux/stockfish_x64_modern.zip" -O stockfish_dev.zip
 RUN 7z e stockfish_dev.zip && rm stockfish_dev.zip && mv stockfish* stockfish_dev
-R
 RUN chmod +x multivariant_stockfish
 RUN chmod +x stockfish_dev
 
