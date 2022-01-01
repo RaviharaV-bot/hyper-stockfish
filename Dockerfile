@@ -24,7 +24,7 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/threeCh
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfTheHill.bin" -O kingofthehill.bin
 
 #syzygy tablebase 5 pices
-RUN wget --no-check-certificate "https://doc-0c-4k-docs.googleusercontent.com/docs/securesc/6u8jf8lp1a9uf1g9bt2vflfpf22imeij/20j8ttibv2b9lpr3c4b49hurisj1ndo0/1641042750000/11706750457809039325/11706750457809039325/1HJTooTmu5FNFYKfngNomBhuMp1FRpzes?e=download&authuser=0&nonce=43p795j884e2q&user=11706750457809039325&hash=jjn0tppkulo1ap5tj2mrpt42qma172g0" -O syzygy.zip
+RUN wget --no-check-certificate "https://doc-0c-4k-docs.googleusercontent.com/docs/securesc/6u8jf8lp1a9uf1g9bt2vflfpf22imeij/loqhlgoa7ubh9fbn9h7o4gvkfnkpfrub/1641044400000/11706750457809039325/11706750457809039325/1HJTooTmu5FNFYKfngNomBhuMp1FRpzes?e=download&authuser=0&nonce=m4vo9h5rvgdom&user=11706750457809039325&hash=lg085lr2mmgs28po5753u1di8qm29rsh" -O syzygy.zip
 RUN unzip syzygy.zip
 
 #engine section
