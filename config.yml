@@ -59,7 +59,7 @@ engine:                      # Engine settings.
     Threads: 2               # Max CPU threads the engine can use.
     Hash: 256                # Max memory (in megabytes) the engine can allocate.
     Use NNUE: true           # allow bot to use neural networks
-    SyzygyPath: ./Syzygy_tablebase
+    SyzygyPath: ./3-4-5
     SyzygyProbeDepth: 50
     Syzygy50MoveRule: true
     SyzygyProbeLimit: 7
