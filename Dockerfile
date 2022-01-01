@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 # If you want to run any other commands use "RUN" before.
  #install wanted packages
-RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full pgn-extract > apti.log
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
 #add books in .7z format
@@ -27,11 +27,9 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfT
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -O multivariant_stockfish
 RUN wget --no-check-certificate -nv "http://abrok.eu/stockfish/latest/linux/stockfish_x64_modern.zip" -O stockfish_dev.zip
 RUN 7z e stockfish_dev.zip && rm stockfish_dev.zip && mv stockfish* stockfish_dev
-RUN wget --no-check-certificate "https://github.com/ianfab/Fairy-Stockfish/releases/download/fairy_sf_14_0_1_xq/fairy-stockfish-largeboard_x86-64-modern" -O fsf
 
 RUN chmod +x multivariant_stockfish
 RUN chmod +x stockfish_dev
-RUN chmod +x fsf
 
 #start bot
 CMD python3 lichess-bot.py -u
