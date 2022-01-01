@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 # If you want to run any other commands use "RUN" before.
  #install wanted packages
-RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full > apti.log
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full unzip > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
 #add books in .7z format
@@ -22,6 +22,10 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/horde.b
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/racingKings.bin" -O racingKings.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/threeCheck.bin" -O threeCheck.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfTheHill.bin" -O kingofthehill.bin
+
+#syzygy tablebase 5 pices
+RUN wget --no-check-certificate "https://chess.massimilianogoi.com/download/tablebases/Syzygy3-4-5/" -O syzygy.zip
+RUN unzip syzygy.zip
 
 #engine section
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -O multivariant_stockfish
