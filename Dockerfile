@@ -16,19 +16,12 @@ RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Cerebellum3mer
 && 7z e Cerebellum3merge.bin.7z && rm Cerebellum3merge.bin.7z
 
 #add variant books and other books
-RUN wget --no-check-certificate "https://github.com/OIVAS7572/lichess-bot/raw/master/Drawkiller_EloZoom_big.bin" -O Drawkiller_EloZoom_big.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/antichess.bin" -O antichess.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/atomic.bin" -O atomic.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/horde.bin" -O horde.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/racingKings.bin" -O racingKings.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/threeCheck.bin" -O threeCheck.bin
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfTheHill.bin" -O kingofthehill.bin
-RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/Perfect2021.bin" -O Perfect2021.bin
-RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/bestbook.bin" -O bestbook.bin
-RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/elo3300.bin" -O elo3300.bin
-RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/komodo.bin" -O komodo.bin
-RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/Lichess-Coded-Bot/raw/main/tcec.bin" -O tcec.bin
-RUN wget --no-check-certificate "https://master.dl.sourceforge.net/project/jose-chess/extras/Opening%20Books/book.bin?viasf=1" -O book.bin
 
 #engine section
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -O multivariant_stockfish
