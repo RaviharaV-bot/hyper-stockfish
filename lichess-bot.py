@@ -238,16 +238,9 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     # Initial response of stream will be the full game info. Store it
     initial_state = json.loads(next(lines).decode('utf-8'))
     game = model.Game(initial_state, user_profile["username"], li.baseUrl, config.get("abort_time", 20))
-
     engine = engine_factory()
     engine.get_opponent_info(game)
     conversation = Conversation(game, engine, li, __version__, challenge_queue)
-    
-    variant=game.perf_name
-    
-    if variant=="standard":
-        engine_path = os.path.join(cfg["dir"], cfg["sfname"])
-        engineeng = engine.SimpleEngine.popen_uci(engine_path) 
     
     class SendLine:
         def __init__(self, room):
@@ -257,6 +250,12 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     conversation.send_reply(SendLine('player'), f'you can also play with @lila-stockfish')
     conversation.send_reply(SendLine('spectator'), f'Welcome to my game spectators!')
     conversation.send_reply(SendLine('spectator'), f'This is a bot created by @RaviharaV you can also watch @lila-stockfish games')
+     
+        variant=game.perf_name
+    
+    if variant=="standard":
+        engine_path = os.path.join(cfg["dir"], cfg["sfname"])
+        engineeng = engine.SimpleEngine.popen_uci(engine_path) 
         
     board = setup_board(game)
     cfg = config["engine"]
