@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 from http.client import RemoteDisconnected
 
-__version__ = "1.0.1"
+__version__ = "1.0.0"
 
 terminated = False
 
@@ -256,7 +256,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
      
     variant=game.perf_name
     
-    if variant=="standard":
+    if variant=="chess":
         engine_path = os.path.join(cfg["dir"], cfg["sfname"])
         engineeng = engine.SimpleEngine.popen_uci(engine_path) 
          
