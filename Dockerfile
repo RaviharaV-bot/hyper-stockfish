@@ -29,7 +29,6 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfT
 #engine section
 RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -o msf
 RUN wget --no-check-certificate "http://abrok.eu/stockfish/latest/linux/stockfish_x64_modern.zip" -O sf.zip
-#RUN wget --no-check-certificate "https://data.stockfishchess.org/nn/nn-938525872610.nnue" -O nn-938525872610.nnue
 RUN 7z e sf.zip && rm sf.zip && mv stockfish_21123107_x64_modern sf
 RUN chmod +x msf
 RUN chmod +x sf
