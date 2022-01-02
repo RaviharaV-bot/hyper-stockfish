@@ -27,11 +27,8 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/threeCh
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfTheHill.bin" -O kingofthehill.bin
 
 #engine section
-RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -o msf
-RUN wget --no-check-certificate "http://abrok.eu/stockfish/latest/linux/stockfish_x64_modern.zip" -O sf.zip
-RUN 7z e sf.zip && rm sf.zip && mv stockfish_21123107_x64_modern sf
-RUN chmod +x msf
-RUN chmod +x sf
+RUN wget --no-check-certificate "https://github.com/RaviharaV-bot/sfbot/raw/main/stockfish_x64_modern_2022" -o mulitstockfish
+RUN chmod +x mulitstockfish
 
 #start bot
 CMD python3 lichess-bot.py -u
