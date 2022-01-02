@@ -31,5 +31,6 @@ Engine communication code taken from https://github.com/ShailChoksi/lichess-bot 
 - Click on `search` and then select your fork of this repository.
 - Then `Enable Automatic Deploys` and then select the `main` branch (which is already done by default usually) and Click `Deploy`.
 - Once it has been deployed, go to `Resources` tab on heroku and enable dynos. (Do note that if you don't see any dynos in the `Resources` tab, then you must wait for about 5 minutes and then refresh your heroku page.)
+- **NOTE if your bot stopped playing but online go to heroku and click on more > restart all dynos
 
 You're now connected to lichess and awaiting challenges! Your bot is up and ready!
