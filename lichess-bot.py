@@ -243,6 +243,12 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     engine.get_opponent_info(game)
     conversation = Conversation(game, engine, li, __version__, challenge_queue)
     
+    variant=game.perf_name
+    
+    if variant=="standard":
+        engine_path = os.path.join(cfg["dir"], cfg["sfname"])
+        engineeng = engine.SimpleEngine.popen_uci(engine_path) 
+    
     class SendLine:
         def __init__(self, room):
             self.room = room
@@ -252,14 +258,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
 
     board = setup_board(game)
     cfg = config["engine"]
-
-
-#    if type(board).uci_variant=="chess":
-#        engine_path = os.path.join(cfg["dir"], cfg["name"])
-#    else:
-#        engine_path = os.path.join(cfg["dir"], cfg["variantname"])
-
-    
+ 
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"
