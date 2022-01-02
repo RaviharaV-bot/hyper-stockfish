@@ -251,7 +251,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     conversation.send_reply(SendLine('spectator'), f'Welcome to my game spectators!')
     conversation.send_reply(SendLine('spectator'), f'This is a bot created by @RaviharaV you can also watch @lila-stockfish games')
      
-        variant=game.perf_name
+    variant=game.perf_name
     
     if variant=="standard":
         engine_path = os.path.join(cfg["dir"], cfg["sfname"])
