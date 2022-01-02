@@ -251,15 +251,6 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     conversation.send_reply(SendLine('spectator'), f'Welcome to my game spectators!')
     conversation.send_reply(SendLine('spectator'), f'This is a bot created by @RaviharaV you can also watch @lila-stockfish games')
     
-    board = setup_board(game)
-    cfg = config["engine"]
-     
-    variant=game.perf_name
-    
-    if variant=="chess":
-        engine_path = os.path.join(cfg["dir"], cfg["sfname"])
-        engineeng = engine.SimpleEngine.popen_uci(engine_path) 
-         
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"
