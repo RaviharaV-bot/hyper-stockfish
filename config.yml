@@ -51,11 +51,6 @@ engine:                      # Engine settings.
       source: "lichess"        # One of "lichess", "chessdb"
       move_quality: "best"     # One of "good", "best"
       
- uci_options:               # Arbitrary UCI options passed to the engine.
-    SyzygyPath: ./syzygy
-    SyzygyProbeDepth: 50
-    Syzygy50MoveRule: true
-    SyzygyProbeLimit: 5
   #engine_options:            # Any custom command line params to pass to the engine.
  #  cpuct: 3.1
 # homemade_options:
