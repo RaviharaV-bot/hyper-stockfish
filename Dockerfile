@@ -9,6 +9,9 @@ COPY requirements.txt .
 RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full git > apti.log
 RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
 
+#syzygy
+RUN git clone https://github.com/hyperbotauthor/syzygy.git
+
 #add books in .7z format
 RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
 && 7z e Goi5.1.bin.7z && rm Goi5.1.bin.7z
