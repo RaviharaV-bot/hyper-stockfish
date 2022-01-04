@@ -9,8 +9,7 @@ Engine communication code taken from https://github.com/ShailChoksi/lichess-bot 
 
 ### Chess Engine
 
-- [Multi Variant Stockfish (Modern CPU)](https://github.com/ddugovic/Stockfish) for variants
-- [Stockfish Dev (Modern CPU)](http://stockfishchess.org) for standard
+- [Multi Variant Stockfish (Modern CPU)](https://github.com/ddugovic/Stockfish)
 
 ### Heroku Buildpack
 
@@ -31,6 +30,11 @@ Engine communication code taken from https://github.com/ShailChoksi/lichess-bot 
 - Click on `search` and then select your fork of this repository.
 - Then `Enable Automatic Deploys` and then select the `main` branch (which is already done by default usually) and Click `Deploy`.
 - Once it has been deployed, go to `Resources` tab on heroku and enable dynos. (Do note that if you don't see any dynos in the `Resources` tab, then you must wait for about 5 minutes and then refresh your heroku page.)
-- **NOTE if your bot stopped playing but online go to heroku and click on more > restart all dynos
+- **NOTE if your bot stopped playing but online go to heroku and click on more > restart all dynos**
 
 You're now connected to lichess and awaiting challenges! Your bot is up and ready!
+
+### to change the engine using 
+
+this repo has 3 chess engines if you want to change engine you have to change [Dockerfile](/Dockerfile#30)
+default is [multifish.sh](/multifish.sh) multifish is multivariant stockfish but if you want fairy stockfish change it to fairyfish.sh or you want to add orginal stockfish change it to realsf.sh and deploy your bot in heroku again
