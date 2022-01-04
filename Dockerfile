@@ -27,7 +27,7 @@ RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/threeCh
 RUN wget --no-check-certificate "https://fbserv.herokuapp.com/file/books/kingOfTheHill.bin" -O kingofthehill.bin
 
 #engine section
-RUN bash makefish.sh
-
+RUN bash multifish.sh  
+#change here to change engine
 #start bot
 CMD python3 lichess-bot.py -u
