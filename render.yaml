@@ -1,5 +1,4 @@
 services:
   - name: worker
     type: worker
-    image: worker
     startCommand: "python lichess-bot.py -u"
