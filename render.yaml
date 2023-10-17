@@ -1,4 +1,4 @@
-  - type: worker
+type: worker
     name: lichessbot
     runtime: docker
     dockerfilePath: ./Dockerfile # optional
