@@ -1,5 +1,5 @@
 services:
   - name: worker
     type: worker
-    image: Dockerfile
+    image: worker
     startCommand: "python lichess-bot.py -u"
