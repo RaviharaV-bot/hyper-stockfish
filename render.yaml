@@ -1,3 +1,2 @@
  - type: worker
-    name: dockerfile
     runtime: docker
