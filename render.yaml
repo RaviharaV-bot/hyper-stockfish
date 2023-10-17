@@ -1,4 +1,4 @@
-services:
+- services:
  - type: worker
   - name: worker
     image: docker.io/library/worker
