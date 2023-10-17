@@ -1,4 +1,8 @@
-services:
-  - name: worker
-    type: worker
-    startCommand: "python lichess-bot.py -u"
+build:
+  docker:
+    worker: Dockerfile
+run:
+  worker:
+    command:
+      - python3 lichess-bot.py -u
+    image: worker
