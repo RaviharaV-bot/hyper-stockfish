@@ -1,3 +1,4 @@
 services:
   - name: worker
+    type: worker
     image: Dockerfile
