@@ -6,8 +6,8 @@ COPY requirements.txt .
 
 # If you want to run any other commands use "RUN" before.
  #install wanted packages
-RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full git > apti.log
-RUN python3 -m pip install --no-cache-dir -r requirements.txt > pip.log
+RUN apt update > aptud.log && apt install -y wget python3 python3-pip p7zip-full git
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 #syzygy
 RUN git clone https://github.com/hyperbotauthor/syzygy.git
