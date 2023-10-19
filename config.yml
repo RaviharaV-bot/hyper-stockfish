@@ -3,7 +3,7 @@ url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
-  name: "stockfish_x64_modern"        # binary name of the engine to use
+  name: "sf"        # binary name of the engine to use
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -11,19 +11,19 @@ engine:                      # Engine settings.
     book:
       standard:              # List of book file paths for variant standard.
        - Goi5.1.bin
-       - Cerebellum3Merge.bin
-      atomic:                # List of book file paths for variant atomic.
-        - atomic.bin
-      antichess:
-        - antichess.bin
-      horde:
-        - horde.bin
-      kingofthehill:
-        - kingofthehill.bin
-      racingkings:
-        - racingKings.bin
-      3check:
-        - threeCheck.bin
+#       - Cerebellum3Merge.bin
+#      atomic:                # List of book file paths for variant atomic.
+#        - atomic.bin
+#     antichess:
+#       - antichess.bin
+#      horde:
+#        - horde.bin
+#      kingofthehill:
+#        - kingofthehill.bin
+#      racingkings:
+#        - racingKings.bin
+#      3check:
+#        - threeCheck.bin
 #     etc.
 #     Use the same pattern for 'giveaway' (antichess), 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
     min_weight: 10           # Does not select moves with weight below min_weight (min 0, max: 65535).
@@ -31,13 +31,13 @@ engine:                      # Engine settings.
     max_depth: 100           # Half move max depth.
   online_moves:
     chessdb_book:
-      enabled: false
+      enabled: true
       min_time: 20
       move_quality: "best"     # One of "all", "good", "best"
       min_depth: 30            # Only for move_quality: "best"
       contribute: false
     lichess_cloud_analysis:
-      enabled: false
+      enabled: true
       min_time: 20
       move_quality: "best"     # One of "good", "best"
       max_score_difference: 50 # Only for move_quality: "good". The maximum score difference (in cp) between the best move and the other moves.
@@ -101,14 +101,14 @@ challenge:                   # Incoming challenges.
   variants:                  # Chess variants to accept (https://lichess.org/variant).
     - standard
 #   - fromPosition
-    - antichess
-    - atomic
-    - chess960
-    - crazyhouse
-    - horde
-    - kingOfTheHill
-    - racingKings
-    - threeCheck
+#    - antichess
+#    - atomic
+#    - chess960
+#    - crazyhouse
+#    - horde
+#    - kingOfTheHill
+#    - racingKings
+#    - threeCheck
   time_controls:             # Time controls to accept.
     - bullet
     - blitz
